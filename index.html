@@ -4,139 +4,342 @@
     <meta charset="UTF-8">
     <title>Build a Survey Form</title>
     <style>
+        /* Reset CSS. */
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Allows to visualize the structure of my page.
         * {
             border: 1px solid red;
         }
+        */
+
+        /* CSS. */
+        html, body {
+            font-family: "Trebuchet MS", Helvetica, sans-serif;
+            text-align: center;
+            min-width: 320px;
+            color: #333;
+        }
+
+        html {
+            background-color: #A9D7D1;
+        }
+
+        h2 {
+            text-align: left;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 12px 0 10px 0;
+            padding-left: 5px;
+        }
+
+
+        #survey-form {
+            background-color: #FAFAFA;
+            margin: 20px auto;
+            padding: 15px;
+            border: 0 solid;
+            border-radius: 5px;
+            width: 75%;
+            max-width: 850px;
+        }
+
+        .labels {
+            display: inline-block;
+            text-align: right;
+            width: 40%;
+            padding: 5px;
+            vertical-align: top;
+            margin-top: 10px;
+        }
+
+        .rightTab {
+            display: inline-block;
+            text-align: left;
+            width: 50%;
+            vertical-align: middle;
+        }
+
+        .input-field {
+            height: 20px;
+            width: 280px;
+            padding: 5px;
+            margin: 10px;
+            border: 1px solid #c0c0c0;
+            border-radius: 2px;
+        }
+
+        .dropdown {
+            font-size: 15px;
+            height: 35px;
+            width: 140px;
+            padding: 5px;
+            margin: 10px;
+            border: 1px solid #c0c0c0;
+            border-radius: 2px;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            float: left;
+            margin-right: 5px;
+        }
+
+        .buttoms {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        #submit {
+            background-color: #59ace0;
+            border-radius: 4px;
+            color: white;
+            font-size: 1em;
+            height: 40px;
+            width: 96px;
+            margin: 10px;
+            border: 0 solid;
+            cursor: pointer;
+        }
+
+        #submit:hover{
+            background-color: green;
+            -webkit-transition-duration: 1s;
+            transition-duration: 1s;
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.70), 0 17px 50px 0 rgba(0,0,0,0.10);
+        }
+
+        #reset-buttom {
+            background-color: #C6081E;
+            border-radius: 4px;
+            color: white;
+            font-size: 1em;
+            height: 40px;
+            width: 96px;
+            margin: 10px;
+            border: 0 solid;
+            cursor: pointer;
+        }
+
+        #reset-buttom:hover{
+            background-color: red;
+            -webkit-transition-duration: 1s;
+            transition-duration: 1s;
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.70), 0 17px 50px 0 rgba(0,0,0,0.10);
+        }
+        @media screen and (max-width: 833px) {
+            .input-field{
+                width: 80%;
+            }
+            select{
+                width: 90%;
+            }
+        }
+
+        @media  screen and (max-width: 520px) {
+            h2{
+                margin-top: 50px;
+                margin-bottom: 0;
+            }
+
+            #number{
+                margin-bottom: 50px;
+            }
+            .labels{
+                width: 100%;
+                text-align: left;
+            }
+            .rightTab{
+                width: 80%;
+                float: left;
+            }
+            .input-field{
+                width: 100%;
+            }
+
+            select{
+                width: 100%;
+            }
+            .buttoms{
+                display: block;
+            }
+        }
+
     </style>
 </head>
 <body>
 <h1 id="title">Survey Form</h1>
-<p id="description">Let us know how we can improve freeCodeCamp</p>
 <form id="survey-form" method="get" action="#">
-    <p> Required fields are followed by <abbr title="required">*</abbr>.</p>
-    <section>
-        <h2>Contact information</h2>
-        <p>
-            <label for="name" id="name-label">Name: <abbr title="required">*</abbr></label>
-            <input type="text" id="name" name="user-name" placeholder="Enter your name" autofocus required>
-        </p>
-        <p>
-            <label for="email" id="email-label">Email: <abbr title="required">*</abbr></label>
-            <input type="email" id="email" name="user-email" placeholder="Enter your Email" required>
-        </p>
-        <p>
-            <label for="number" id="number-label">Age: <abbr title="required">*</abbr></label>
-            <input type="number" id="number" name="user-age" placeholder="Enter your Age" min="1" max="125">
-        </p>
+    <p id="description">Let us know how we can improve freeCodeCamp</p>
+    <p id="note"> (Required fields are followed by <abbr title="required">*</abbr>)</p>
+    <section id="contact-infomation">
+        <h2>Your contact information:</h2>
+        <div class="rowTab">
+            <div class="labels">
+                <label for="name" id="name-label"><abbr title="required">*</abbr> Name:</label>
+            </div>
+            <div class="rightTab">
+                <input type="text" id="name" class="input-field" name="user-name" placeholder="Enter your name"
+                       autofocus required>
+            </div>
+        </div>
+        <div class="rowTab">
+            <div class="labels">
+                <label for="email" id="email-label"><abbr title="required">*</abbr> Email:</label>
+            </div>
+            <div class="rightTab">
+                <input type="email" id="email" class="input-field" name="user-email" placeholder="Enter your Email"
+                       required>
+            </div>
+        </div>
+        <div class="rowTab">
+            <div class="labels">
+                <label for="number" id="number-label"><abbr title="required">*</abbr> Age:</label>
+            </div>
+            <div class="rightTab">
+                <input type="number" id="number" class="input-field" name="user-age" placeholder="Enter your Age"
+                       min="1" max="125">
+            </div>
+        </div>
     </section>
-    <section>
-        <h2>Questions of our survey</h2>
-        <p>
-            <label for="dropdown" id="dropdown-label">Which option best describes your current role?</label>
-            <select id="dropdown" name="user-current-role">
-                <optgroup label="Please select an option!">
-                    <option value="full-time-job">Full time job</option>
-                    <option value="full-time-learner">Full time learner</option>
-                    <option value="other">Other</option>
-                    <option value="prefer-not-to-say">Prefer not to say</option>
-                    <option value="student" selected>Student</option>
-                </optgroup>
-            </select>
-        </p>
+    <section id="survey-questions">
+        <h2>Questions of our survey:</h2>
+        <div class="rowTab">
+            <div class="labels">
+                <label for="dropdown" id="dropdown-label">Which option best describes your current role?</label>
+            </div>
+            <div class="rightTab">
+                <select id="dropdown" class="dropdown" name="user-current-role">
+                    <optgroup label="Please select an option !">
+                        <option value="full-time-job">Full time job</option>
+                        <option value="full-time-learner">Full time learner</option>
+                        <option value="other">Other</option>
+                        <option value="prefer-not-to-say">Prefer not to say</option>
+                        <option value="student" selected>Student</option>
+                    </optgroup>
+                </select>
+            </div>
+        </div>
         <fieldset>
-            <legend>How likely is that you would recommend freeCodeCamp to a friend? <abbr title="required">*</abbr>
-            </legend>
-            <ul>
-                <li>
-                    <label for="definitely">Definitely</label>
-                    <input type="radio" id="definitely" name="recommend-fcc" value="definitely-recommend" checked>
-                </li>
-                <li>
-                    <label for="maybe">Maybe</label>
-                    <input type="radio" id="maybe" name="recommend-fcc" value="maybe-recommend">
-                </li>
-                <li>
-                    <label for="not-sure">Not sure</label>
-                    <input type="radio" id="not-sure" name="recommend-fcc" value="not-sure">
-                </li>
-            </ul>
+            <div class="labels">
+                <legend><abbr title="required">*</abbr> How likely is that you would recommend freeCodeCamp to a friend?
+                </legend>
+            </div>
+            <div class="rightTab">
+                <ul>
+                    <li>
+                        <input type="radio" id="definitely" name="recommend-fcc" value="definitely-recommend" checked>
+                        <label for="definitely">Definitely</label>
+                    </li>
+                    <li>
+                        <input type="radio" id="maybe" name="recommend-fcc" value="maybe-recommend">
+                        <label for="maybe">Maybe</label>
+                    </li>
+                    <li>
+                        <input type="radio" id="not-sure" name="recommend-fcc" value="not-sure">
+                        <label for="not-sure">Not sure</label>
+                    </li>
+                </ul>
+            </div>
         </fieldset>
-        <p>
-            <label for="dropdown-two" id="mc-dropdown-label">What do you like most in <abbr
-                    title="Free Code Camp">FCC</abbr>?</label>
-            <select id="dropdown-two" name="like-most-fcc">
-                <optgroup label="Please select one options!">
-                    <option value="challenges" selected>Challenges</option>
-                    <option value="community">Community</option>
-                    <option value="open-source">Open-source</option>
-                    <option value="projects">Projects</option>
-                </optgroup>
-            </select>
-        </p>
+        <div class="rowTab">
+            <div class="labels">
+                <label for="dropdown-two" id="mc-dropdown-label">What do you like most in <abbr
+                        title="Free Code Camp">FCC</abbr>?</label>
+            </div>
+            <div class="rightTab">
+                <select id="dropdown-two" class="dropdown" name="like-most-fcc">
+                    <optgroup label="Please select an option !">
+                        <option value="challenges" selected>Challenges</option>
+                        <option value="community">Community</option>
+                        <option value="open-source">Open-source</option>
+                        <option value="projects">Projects</option>
+                    </optgroup>
+                </select>
+            </div>
+        </div>
         <fieldset>
-            <legend>Things that should be improved in the future (Check all that apply):</legend>
-            <ul>
-                <li>
-                    <label for="front-end-projects">Front-end Projects</label>
-                    <input type="checkbox" id="front-end-projects" name="future-in-fcc" value="front-end-projects">
-                </li>
-                <li>
-                    <label for="back-end-projects">Back-end Projects</label>
-                    <input type="checkbox" id="back-end-projects" name="future-in-fcc" value="back-end-projects">
-                </li>
-                <li>
-                    <label for="data-visualization">Data Visualization</label>
-                    <input type="checkbox" id="data-visualization" name="future-in-fcc" value="data-visualization">
-                </li>
-                <li>
-                    <label for="challenges">Challenges</label>
-                    <input type="checkbox" id="challenges" name="future-in-fcc" value="challenges">
-                </li>
-                <li>
-                    <label for="open-source-community">Open Source Community</label>
-                    <input type="checkbox" id="open-source-community" name="future-in-fcc"
-                           value="open-source-community">
-                </li>
-                <li>
-                    <label for="gitter-help-rooms">Gitter help rooms</label>
-                    <input type="checkbox" id="gitter-help-rooms" name="future-in-fcc" value="gitter-help-rooms">
-                </li>
-                <li>
-                    <label for="videos">Videos</label>
-                    <input type="checkbox" id="videos" name="future-in-fcc" value="videos">
-                </li>
-                <li>
-                    <label for="city-meetups">City Meetups</label>
-                    <input type="checkbox" id="city-meetups" name="future-in-fcc" value="city-mettups">
-                </li>
-                <li>
-                    <label for="wiki">Wiki</label>
-                    <input type="checkbox" id="wiki" name="future-in-fcc" value="wiki">
-                </li>
-                <li>
-                    <label for="forum">Forum</label>
-                    <input type="checkbox" id="forum" name="future-in-fcc" value="forum">
-                </li>
-                <li>
-                    <label for="additional-courses">Additional Courses</label>
-                    <input type="checkbox" id="additional-courses" name="future-in-fcc" value="additional-courses">
-                </li>
-            </ul>
+            <div class="labels">
+                <legend>Things that should be improved in the future (Check all that apply):</legend>
+            </div>
+            <div class="rightTab">
+                <ul>
+                    <li>
+                        <input type="checkbox" id="front-end-projects" name="future-in-fcc" value="front-end-projects">
+                        <label for="front-end-projects">Front-end Projects</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="back-end-projects" name="future-in-fcc" value="back-end-projects">
+                        <label for="back-end-projects">Back-end Projects</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="data-visualization" name="future-in-fcc" value="data-visualization">
+                        <label for="data-visualization">Data Visualization</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="challenges" name="future-in-fcc" value="challenges">
+                        <label for="challenges">Challenges</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="open-source-community" name="future-in-fcc"
+                               value="open-source-community">
+                        <label for="open-source-community">Open Source Community</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="gitter-help-rooms" name="future-in-fcc" value="gitter-help-rooms">
+                        <label for="gitter-help-rooms">Gitter help rooms</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="videos" name="future-in-fcc" value="videos">
+                        <label for="videos">Videos</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="city-meetups" name="future-in-fcc" value="city-mettups">
+                        <label for="city-meetups">City Meetups</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="wiki" name="future-in-fcc" value="wiki">
+                        <label for="wiki">Wiki</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="forum" name="future-in-fcc" value="forum">
+                        <label for="forum">Forum</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="additional-courses" name="future-in-fcc" value="additional-courses">
+                        <label for="additional-courses">Additional Courses</label>
+                    </li>
+                </ul>
+            </div>
         </fieldset>
-        <p>
-            <label for="textarea" id="textarea-label">Any Comments or Suggestions?</label>
-            <textarea id="textarea" cols="30" rows="10" wrap="soft" placeholder="Enter your comment here..."></textarea>
-        </p>
+
+        <div class="rowTab">
+            <div class="labels">
+                <label for="textarea" id="textarea-label">Any Comments or Suggestions?</label>
+            </div>
+            <div class="rightTab">
+                <textarea id="textarea" class="input-field" cols="30" rows="10" wrap="soft"
+                          placeholder="Enter your comment here..."></textarea>
+            </div>
+        </div>
     </section>
-    <p>
+    <div class="buttoms">
         <button type="submit" id="submit">Submit</button>
-    </p>
-    <p>
         <button type="reset" id="reset-buttom"><abbr
                 title="Resets all form widgets to their default vaulues">Reset</abbr></button>
+    </div>
+    <p>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer">
+            <img style="border:0;width:88px;height:31px"
+                 src="http://jigsaw.w3.org/css-validator/images/vcss"
+                 alt="Valid CSS!" />
+        </a>
     </p>
-
-
 </form>
 <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 </body>
