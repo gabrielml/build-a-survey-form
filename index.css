@@ -1,0 +1,171 @@
+/* Reset CSS. */
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Allows to visualize the structure of my page.
+* {
+    border: 1px solid red;
+}
+*/
+
+/* CSS. */
+html, body {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    text-align: center;
+    min-width: 320px;
+    color: #333;
+}
+
+html {
+    background-color: #A9D7D1;
+}
+
+h2 {
+    text-align: left;
+}
+
+ul {
+    list-style-type: none;
+    margin: 12px 0 10px 0;
+    padding-left: 5px;
+}
+
+
+#survey-form {
+    background-color: #FAFAFA;
+    margin: 20px auto;
+    padding: 15px;
+    border: 0 solid;
+    border-radius: 5px;
+    width: 75%;
+    max-width: 850px;
+}
+
+.labels {
+    display: inline-block;
+    text-align: right;
+    width: 40%;
+    padding: 5px;
+    vertical-align: top;
+    margin-top: 10px;
+}
+
+.rightTab {
+    display: inline-block;
+    text-align: left;
+    width: 50%;
+    vertical-align: middle;
+}
+
+.input-field {
+    height: 20px;
+    width: 280px;
+    padding: 5px;
+    margin: 10px;
+    border: 1px solid #c0c0c0;
+    border-radius: 2px;
+}
+
+.dropdown {
+    font-size: 15px;
+    height: 35px;
+    width: 140px;
+    padding: 5px;
+    margin: 10px;
+    border: 1px solid #c0c0c0;
+    border-radius: 2px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    float: left;
+    margin-right: 5px;
+}
+
+.buttoms {
+    display: flex;
+    justify-content: space-around;
+}
+
+#submit {
+    background-color: #59ace0;
+    border-radius: 4px;
+    color: white;
+    font-size: 1em;
+    height: 40px;
+    width: 96px;
+    margin: 10px;
+    border: 0 solid;
+    cursor: pointer;
+}
+
+#submit:hover {
+    background-color: green;
+    -webkit-transition-duration: 1s;
+    transition-duration: 1s;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.70), 0 17px 50px 0 rgba(0, 0, 0, 0.10);
+}
+
+#reset-buttom {
+    background-color: #C6081E;
+    border-radius: 4px;
+    color: white;
+    font-size: 1em;
+    height: 40px;
+    width: 96px;
+    margin: 10px;
+    border: 0 solid;
+    cursor: pointer;
+}
+
+#reset-buttom:hover {
+    background-color: red;
+    -webkit-transition-duration: 1s;
+    transition-duration: 1s;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.70), 0 17px 50px 0 rgba(0, 0, 0, 0.10);
+}
+
+@media screen and (max-width: 833px) {
+    .input-field {
+        width: 80%;
+    }
+
+    select {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    h2 {
+        margin-top: 50px;
+        margin-bottom: 0;
+    }
+
+    #number {
+        margin-bottom: 50px;
+    }
+
+    .labels {
+        width: 100%;
+        text-align: left;
+    }
+
+    .rightTab {
+        width: 80%;
+        float: left;
+    }
+
+    .input-field {
+        width: 100%;
+    }
+
+    select {
+        width: 100%;
+    }
+
+    .buttoms {
+        display: block;
+    }
+}
