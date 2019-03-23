@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Build a Survey Form</title>
+    <style>
+        * {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+<h1 id="title">Survey Form</h1>
+<p id="description">Let us know how we can improve freeCodeCamp</p>
+<form id="survey-form" method="get" action="#">
+    <p> Required fields are followed by <abbr title="required">*</abbr>.</p>
+    <section>
+        <h2>Contact information</h2>
+        <p>
+            <label for="name" id="name-label">Name: <abbr title="required">*</abbr></label>
+            <input type="text" id="name" name="user-name" placeholder="Enter your name" autofocus required>
+        </p>
+        <p>
+            <label for="email" id="email-label">Email: <abbr title="required">*</abbr></label>
+            <input type="email" id="email" name="user-email" placeholder="Enter your Email" required>
+        </p>
+        <p>
+            <label for="number" id="number-label">Age: <abbr title="required">*</abbr></label>
+            <input type="number" id="number" name="user-age" placeholder="Enter your Age" min="1" max="125">
+        </p>
+    </section>
+    <section>
+        <h2>Questions of our survey</h2>
+        <p>
+            <label for="dropdown" id="dropdown-label">Which option best describes your current role?</label>
+            <select id="dropdown" name="user-current-role">
+                <optgroup label="Please select an option!">
+                    <option value="full-time-job">Full time job</option>
+                    <option value="full-time-learner">Full time learner</option>
+                    <option value="other">Other</option>
+                    <option value="prefer-not-to-say">Prefer not to say</option>
+                    <option value="student" selected>Student</option>
+                </optgroup>
+            </select>
+        </p>
+        <fieldset>
+            <legend>How likely is that you would recommend freeCodeCamp to a friend? <abbr title="required">*</abbr>
+            </legend>
+            <ul>
+                <li>
+                    <label for="definitely">Definitely</label>
+                    <input type="radio" id="definitely" name="recommend-fcc" value="definitely-recommend" checked>
+                </li>
+                <li>
+                    <label for="maybe">Maybe</label>
+                    <input type="radio" id="maybe" name="recommend-fcc" value="maybe-recommend">
+                </li>
+                <li>
+                    <label for="not-sure">Not sure</label>
+                    <input type="radio" id="not-sure" name="recommend-fcc" value="not-sure">
+                </li>
+            </ul>
+        </fieldset>
+        <p>
+            <label for="dropdown-two" id="mc-dropdown-label">What do you like most in <abbr
+                    title="Free Code Camp">FCC</abbr>?</label>
+            <select id="dropdown-two" name="like-most-fcc">
+                <optgroup label="Please select one options!">
+                    <option value="challenges" selected>Challenges</option>
+                    <option value="community">Community</option>
+                    <option value="open-source">Open-source</option>
+                    <option value="projects">Projects</option>
+                </optgroup>
+            </select>
+        </p>
+        <fieldset>
+            <legend>Things that should be improved in the future (Check all that apply):</legend>
+            <ul>
+                <li>
+                    <label for="front-end-projects">Front-end Projects</label>
+                    <input type="checkbox" id="front-end-projects" name="future-in-fcc" value="front-end-projects">
+                </li>
+                <li>
+                    <label for="back-end-projects">Back-end Projects</label>
+                    <input type="checkbox" id="back-end-projects" name="future-in-fcc" value="back-end-projects">
+                </li>
+                <li>
+                    <label for="data-visualization">Data Visualization</label>
+                    <input type="checkbox" id="data-visualization" name="future-in-fcc" value="data-visualization">
+                </li>
+                <li>
+                    <label for="challenges">Challenges</label>
+                    <input type="checkbox" id="challenges" name="future-in-fcc" value="challenges">
+                </li>
+                <li>
+                    <label for="open-source-community">Open Source Community</label>
+                    <input type="checkbox" id="open-source-community" name="future-in-fcc"
+                           value="open-source-community">
+                </li>
+                <li>
+                    <label for="gitter-help-rooms">Gitter help rooms</label>
+                    <input type="checkbox" id="gitter-help-rooms" name="future-in-fcc" value="gitter-help-rooms">
+                </li>
+                <li>
+                    <label for="videos">Videos</label>
+                    <input type="checkbox" id="videos" name="future-in-fcc" value="videos">
+                </li>
+                <li>
+                    <label for="city-meetups">City Meetups</label>
+                    <input type="checkbox" id="city-meetups" name="future-in-fcc" value="city-mettups">
+                </li>
+                <li>
+                    <label for="wiki">Wiki</label>
+                    <input type="checkbox" id="wiki" name="future-in-fcc" value="wiki">
+                </li>
+                <li>
+                    <label for="forum">Forum</label>
+                    <input type="checkbox" id="forum" name="future-in-fcc" value="forum">
+                </li>
+                <li>
+                    <label for="additional-courses">Additional Courses</label>
+                    <input type="checkbox" id="additional-courses" name="future-in-fcc" value="additional-courses">
+                </li>
+            </ul>
+        </fieldset>
+        <p>
+            <label for="textarea" id="textarea-label">Any Comments or Suggestions?</label>
+            <textarea id="textarea" cols="30" rows="10" wrap="soft" placeholder="Enter your comment here..."></textarea>
+        </p>
+    </section>
+    <p>
+        <button type="submit" id="submit">Submit</button>
+    </p>
+    <p>
+        <button type="reset" id="reset-buttom"><abbr
+                title="Resets all form widgets to their default vaulues">Reset</abbr></button>
+    </p>
+
+
+</form>
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+</body>
+</html>
